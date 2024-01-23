@@ -26,7 +26,7 @@ const LatestActivitiesSkeleton = () => {
           <Skeleton.Button
             active
             style={{
-              width: "300px",
+              width: "250px",
               height: "16px",
             }}
           />

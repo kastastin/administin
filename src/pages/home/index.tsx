@@ -8,6 +8,7 @@ import {
   DashboardTotalCountCard,
   UpcomingEvents,
   DealsChart,
+  LatestActivities,
 } from "@/components";
 
 export const Home = () => {
@@ -47,12 +48,7 @@ export const Home = () => {
         </Col>
       </Row>
 
-      <Row
-        gutter={[32, 32]}
-        style={{
-          marginTop: "32px",
-        }}
-      >
+      <Row gutter={[32, 32]} style={{ marginTop: "32px" }}>
         <Col
           xs={24}
           sm={24}
@@ -73,6 +69,12 @@ export const Home = () => {
           }}
         >
           <DealsChart />
+        </Col>
+      </Row>
+
+      <Row gutter={[32, 32]} style={{ marginTop: "32px" }}>
+        <Col xs={24}>
+          <LatestActivities />
         </Col>
       </Row>
     </div>
