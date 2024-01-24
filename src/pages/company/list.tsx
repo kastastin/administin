@@ -88,7 +88,7 @@ export const CompanyList = ({ children }: React.PropsWithChildren) => {
                 <Input placeholder="Search Company" />
               </FilterDropdown>
             )}
-            render={(value, record) => (
+            render={(_, record) => (
               <Space>
                 <CustomAvatar
                   shape="square"
