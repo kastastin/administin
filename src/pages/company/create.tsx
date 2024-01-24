@@ -33,7 +33,9 @@ const Create = () => {
     },
   });
 
-  const { selectProps, queryResult } = useSelect<GetFieldsFromList<UsersSelectQuery>>({
+  const { selectProps, queryResult } = useSelect<
+    GetFieldsFromList<UsersSelectQuery>
+  >({
     resource: "users",
     optionLabel: "name",
     meta: {
