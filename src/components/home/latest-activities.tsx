@@ -16,7 +16,6 @@ const LatestActivities = () => {
   const {
     data: audit,
     isLoading: isLoadingAudit,
-    isError,
     error,
   } = useList({
     resource: "audits",

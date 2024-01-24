@@ -1,22 +1,20 @@
+import { BrowserRouter, Outlet, Route, Routes } from "react-router-dom";
 import { Authenticated, Refine } from "@refinedev/core";
-import { DevtoolsPanel, DevtoolsProvider } from "@refinedev/devtools";
-import { RefineKbar, RefineKbarProvider } from "@refinedev/kbar";
-
+import { App as AntdApp } from "antd";
 import { useNotificationProvider } from "@refinedev/antd";
-import "@refinedev/antd/dist/reset.css";
-
-import { authProvider, dataProvider, liveProvider } from "./providers";
-import { Home, ForgotPassword, Login, Register } from "./pages";
-
+import { RefineKbar, RefineKbarProvider } from "@refinedev/kbar";
+import { DevtoolsPanel, DevtoolsProvider } from "@refinedev/devtools";
 import routerBindings, {
   CatchAllNavigate,
-  DocumentTitleHandler,
   UnsavedChangesNotifier,
 } from "@refinedev/react-router-v6";
-import { App as AntdApp } from "antd";
+
 import Layout from "./components/layout";
 import { resources } from "./config/resources";
-import { BrowserRouter, Outlet, Route, Routes } from "react-router-dom";
+import { authProvider, dataProvider, liveProvider } from "./providers";
+import { Home, ForgotPassword, Login, Register, CompanyList } from "./pages";
+
+import "@refinedev/antd/dist/reset.css";
 
 function App() {
   return (
@@ -56,11 +54,11 @@ function App() {
                   }
                 >
                   <Route index element={<Home />} />
+                  <Route path="/companies" element={<CompanyList />} />
                 </Route>
               </Routes>
               <RefineKbar />
               <UnsavedChangesNotifier />
-              <DocumentTitleHandler />
             </Refine>
             <DevtoolsPanel />
           </DevtoolsProvider>
