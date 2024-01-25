@@ -1,5 +1,5 @@
-// import React from "react";
-import { useGo, getDefaultFilter } from "@refinedev/core";
+import { useGo, getDefaultFilter, HttpError } from "@refinedev/core";
+import { GetFieldsFromList } from "@refinedev/nestjs-query";
 import { SearchOutlined } from "@ant-design/icons";
 import { Input, Space, Table } from "antd";
 import {
@@ -12,6 +12,7 @@ import {
 } from "@refinedev/antd";
 
 import { Company } from "@/graphql/schema.types";
+import { CompaniesListQuery } from "@/graphql/types";
 import { COMPANIES_LIST_QUERY } from "@/graphql/queries";
 
 import { Text } from "@/components/text";
@@ -20,9 +21,13 @@ import { currencyNumber } from "@/utilities";
 
 export const CompanyList = ({ children }: React.PropsWithChildren) => {
   const go = useGo();
-  const { tableProps, filters } = useTable({
+  const { tableProps, filters } = useTable<
+    GetFieldsFromList<CompaniesListQuery>,
+    HttpError,
+    GetFieldsFromList<CompaniesListQuery>
+  >({
     resource: "companies",
-    onSearch: (values: Company) => {
+    onSearch: (values) => {
       return [
         {
           field: "name",
